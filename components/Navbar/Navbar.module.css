@@ -1,0 +1,15 @@
+.navbar {
+  background-color: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.user {
+  list-style: none;
+}
