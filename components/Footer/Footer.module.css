@@ -1,0 +1,16 @@
+.footerContainer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+}
+
+.heart {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+a.page {
+    color: var(--text-primary);
+    text-decoration: none;
+}
