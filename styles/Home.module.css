@@ -1,0 +1,18 @@
+.mainView {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+}
+
+.menuTitle {
+  font-size: 3.2rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.menuDescription {
+  font-weight: 200;
+  font-size: 1.7rem;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}

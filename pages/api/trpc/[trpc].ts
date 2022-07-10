@@ -1,10 +1,12 @@
 import * as trpc from "@trpc/server";
 import * as trpcNext from "@trpc/server/adapters/next";
 import SpotifyWebApi from "spotify-web-api-node";
+import { z } from "zod";
 import { Context, createContext } from "../../../utils/context";
 
 export const appRouter = trpc.router<Context>().query("get-tracks", {
-  resolve: async ({ ctx }) => {
+  input: z.object({ limit: z.number().min(1).max(10) }).nullish(),
+  resolve: async ({ ctx, input }) => {
     const session = ctx.session;
 
     if (!session) {
@@ -14,14 +16,18 @@ export const appRouter = trpc.router<Context>().query("get-tracks", {
     spotify.setAccessToken(session.accessToken as string);
 
     try {
-      const response = await spotify.getMyRecentlyPlayedTracks({ limit: 3 });
+      const response = await spotify.getMyRecentlyPlayedTracks({
+        limit: input?.limit || 3,
+      });
       return {
         tracks: response.body.items.map((item) => {
           const trackData = item.track;
           return {
+            id: trackData.id,
             name: trackData.name,
             artists: trackData.artists.map((artist) => artist.name),
             images: trackData.album.images,
+            url: trackData.external_urls.spotify,
           };
         }),
       };

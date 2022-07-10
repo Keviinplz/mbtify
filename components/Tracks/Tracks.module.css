@@ -1,0 +1,54 @@
+.tracksList {
+  list-style: none;
+}
+
+.trackInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--text-secondary);
+  font-weight: 100;
+  background-color: none;
+  transition: all 0.1s;
+  padding: 15px;
+}
+
+.trackInfo:hover {
+  background-color: var(--color-primary);
+  color: var(--text-main);
+  font-weight: 400;
+}
+
+.trackImage {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-right: 30px;
+}
+
+.trackImage img {
+  border-radius: 50%;
+}
+
+.trackDetails {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 1 1 0px;
+}
+
+.trackTitle {
+  text-align: left;
+  margin-right: 20px;
+  font-size: 1.3rem;
+  width: 10vw;
+}
+
+
+a.trackLink {
+  text-decoration: none;
+}
