@@ -2,7 +2,7 @@ import NavbarOutler from "../../NavbarOutler";
 import Footer from "../../Footer";
 import Head from "next/head";
 
-import styles from "./styles.module.css";
+import styles from "./CommonLayout.module.css";
 
 export default function CommonLayout({
   children,

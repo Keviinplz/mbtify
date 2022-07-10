@@ -1,7 +1,10 @@
 import { DefaultSession } from "next-auth";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./styles.module.css";
+import styles from "./Navbar.module.css";
 
 interface NavbarProps {
   user: DefaultSession["user"];
@@ -10,7 +13,6 @@ interface NavbarProps {
 export default function Navbar({ user }: NavbarProps) {
   return (
     <ul className={styles.user}>
-      <li className={styles.username}>{user?.name}</li>
       {user?.image && (
         <li>
           <Image
@@ -21,6 +23,11 @@ export default function Navbar({ user }: NavbarProps) {
           />
         </li>
       )}
+      <li className={styles.signOut}>
+        <button className={styles.signOutButton} onClick={() => signOut()}>
+          <FontAwesomeIcon icon={faArrowRightFromBracket} />
+        </button>
+      </li>
     </ul>
   );
 }
