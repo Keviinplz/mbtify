@@ -1,22 +1,26 @@
-import styles from "./Navbar.module.css";
+import { DefaultSession } from "next-auth";
+import Image from "next/image";
+
+import styles from "./styles.module.css";
 
 interface NavbarProps {
-  user: SpotifyUser | null;
-}
-
-interface SpotifyUser {
-  username: string;
-  picture?: string;
+  user: DefaultSession["user"];
 }
 
 export default function Navbar({ user }: NavbarProps) {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>MBTIfy</div>
-      <ul className={styles.user}>
-        <li>{user?.picture ? "has picture" : "not picture"}</li>
-        <li>{user?.username}</li>
-      </ul>
-    </nav>
+    <ul className={styles.user}>
+      <li className={styles.username}>{user?.name}</li>
+      {user?.image && (
+        <li>
+          <Image
+            className={styles.picture}
+            src={user.image}
+            width={50}
+            height={50}
+          />
+        </li>
+      )}
+    </ul>
   );
 }
