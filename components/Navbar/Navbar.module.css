@@ -23,7 +23,7 @@
 
 .signOutButton {
   background: none;
-  color: var(--text-primary);
+  color: var(--text-main);
   border: none;
   font-size: 1.3rem;
   line-height: 50px;
@@ -32,7 +32,7 @@
 }
 
 .signOutButton:hover {
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 @media (max-width: 480px) {

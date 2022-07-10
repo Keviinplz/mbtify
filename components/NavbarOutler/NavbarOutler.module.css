@@ -15,12 +15,12 @@
 }
 
 .logo:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .signInButton {
   background: none;
-  color: var(--text-primary);
+  color: var(--text-main);
   border: none;
   font-size: 1.3rem;
   line-height: 50px;
@@ -29,5 +29,5 @@
 }
 
 .signInButton:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }

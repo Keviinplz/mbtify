@@ -6,7 +6,6 @@ import CommonLayout from "../components/layouts/CommonLayout";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
-
   if (!session) {
     return {
       redirect: {
@@ -20,6 +19,7 @@ export async function getServerSideProps(context: NextPageContext) {
     props: {},
   };
 }
+
 export default function Main() {
   return <> main page </>;
 }

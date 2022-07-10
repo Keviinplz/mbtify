@@ -6,8 +6,16 @@
   --color-quaternary: #974EC2;
 
   /** Text colors */
-  --text-primary: #fff;
-  --text-secondary: #C2508B;
+  --text-main: #fff;
+  --text-primary: #C2508B;
+  --text-secondary: #974EC2;
+
+  /** Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
 }
 
 * {
