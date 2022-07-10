@@ -3,6 +3,7 @@ import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 
 import CommonLayout from "../components/layouts/CommonLayout";
+import { trpc } from "../utils/trpc";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -21,7 +22,13 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Main() {
-  return <> main page </>;
+  const hello = trpc.useQuery(["get-tracks"]);
+
+  if (!hello.data) {
+    return <p>Loading...</p>;
+  }
+
+  return <> {JSON.stringify(hello.data.tracks, null, 4)} </>;
 }
 
 Main.getLayout = function getLayout(page: ReactElement) {

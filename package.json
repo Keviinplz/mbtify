@@ -13,10 +13,18 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@trpc/client": "^9.25.3",
+    "@trpc/next": "^9.25.3",
+    "@trpc/react": "^9.25.3",
+    "@trpc/server": "^9.25.3",
+    "@types/spotify-web-api-node": "^5.0.7",
     "next": "12.2.2",
     "next-auth": "^4.9.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.1",
+    "spotify-web-api-node": "^5.0.2",
+    "zod": "^3.17.3"
   },
   "devDependencies": {
     "@types/node": "18.0.3",
