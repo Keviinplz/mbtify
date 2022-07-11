@@ -58,7 +58,7 @@ export default function Main() {
         <p className={styles.menuDescription}>
           In few seconds you will be able to see your MBTI Character above. 
         </p>
-        <Character />
+        <Character tracksIds={tracks.map((track) => track.id)}/>
       </div>
     </div>
   );
