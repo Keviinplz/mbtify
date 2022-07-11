@@ -13,6 +13,8 @@
 
 .predictionMenu {
   order: 2;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .menuTitle {
@@ -40,6 +42,7 @@
   
   .predictionMenu {
     order: 1;
+    min-height: calc(100vh - (2rem + 50px));
   }
   
 }
