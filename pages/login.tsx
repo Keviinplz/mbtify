@@ -34,7 +34,7 @@ export default function Login() {
             Playlist <br /> Personality
           </h2>
           <p className={styles.landingDescription}>
-            Find your MBTI Character that match perfectly with your Spotify
+            Find your MBTI Character that matchs perfectly with your Spotify
             Activity
           </p>
         </div>
