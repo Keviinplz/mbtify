@@ -39,16 +39,47 @@
   justify-content: space-between;
   align-items: center;
   flex-basis: 1 1 0px;
+  flex: 1
 }
 
 .trackTitle {
   text-align: left;
   margin-right: 20px;
   font-size: 1.3rem;
-  width: 10vw;
+  width: 100%;
+}
+
+.trackArtists {
+  text-align: left;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.trackAlbum {
+  width: 100%;
 }
 
 
 a.trackLink {
   text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .trackImage {
+    margin-right: 15px;
+  }
+
+  .trackTitle {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+
+  .trackArtists {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+
+  .trackAlbum {
+    font-size: 0.8rem;
+  }
 }

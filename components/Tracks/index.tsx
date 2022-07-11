@@ -7,6 +7,10 @@ interface Track {
   id: string;
   name: string;
   artists: string[];
+  album: {
+    id: string;
+    name: string;
+  }
   images: {
     url: string;
     width?: number;
@@ -37,6 +41,9 @@ const Tracks = ({ tracks }: TracksProps) => {
                 <span className={styles.trackTitle}>{track.name}</span>
                 <span className={styles.trackArtists}>
                   {track.artists.join(", ")}
+                </span>
+                <span className={styles.trackAlbum}>
+                  {track.album.name}
                 </span>
               </div>
             </div>

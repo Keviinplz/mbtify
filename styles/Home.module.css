@@ -1,7 +1,18 @@
 .mainView {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  justify-content: space-around;
   margin: auto;
+  width: 90vw;
+  flex-basis: 1 1 0;
+}
+
+.tracksMenu {
+  order: 1;
+}
+
+.predictionMenu {
+  order: 2;
 }
 
 .menuTitle {
@@ -15,4 +26,31 @@
   font-size: 1.7rem;
   color: var(--text-main);
   margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .mainView {
+    flex-flow: column wrap;
+    justify-content: flex-start;
+  }
+
+  .tracksMenu {
+    order: 2;
+  }
+  
+  .predictionMenu {
+    order: 1;
+  }
+  
+}
+
+
+@media (max-width: 480px) {
+  .menuTitle {
+    font-size: 2.1rem;
+  }
+
+  .menuDescription {
+    font-size: 1.1rem;
+  }
 }

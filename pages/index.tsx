@@ -1,11 +1,12 @@
 import type { ReactElement } from "react";
 import { NextPageContext } from "next";
-import { getSession } from "next-auth/react";
+import { getSession, signOut } from "next-auth/react";
 
 import CommonLayout from "../components/layouts/CommonLayout";
 import { trpc } from "../utils/trpc";
 import styles from "../styles/Home.module.css";
 import Tracks from "../components/Tracks";
+import Character from "../components/Character";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -30,28 +31,35 @@ export default function Main() {
     return <p>Loading...</p>;
   }
 
+  if (response.data.error && response.data.error === "Unauthorized") {
+    signOut();
+    return <p>Your access token is not valid, please login again.</p>;
+  }
+
   const tracks = response.data.tracks;
 
   if (!tracks) {
     return <p>No tracks found</p>;
   }
+
   return (
     <div className={styles.mainView}>
       <div className={styles.tracksMenu}>
-        <h1 className={styles.menuTitle}>Your Latest {tracks.length} tracks</h1>
+        <h1 className={styles.menuTitle}>Tracks used</h1>
         <p className={styles.menuDescription}>
-          The tracks above are the latest tracks you have listened to on
-          Spotify. <br />
+          The tracks above are the latest {tracks.length} tracks you have
+          listened to on Spotify. <br />
           This will be use as a basis to get your MBTI Character.
         </p>
         <Tracks tracks={tracks} />
       </div>
-      {/** <div className={styles.predictionMenu}>
+      <div className={styles.predictionMenu}>
         <h1 className={styles.menuTitle}>Your MBTI Character</h1>
         <p className={styles.menuDescription}>
-          Based on your Spotify tracks, we have determined your MBTI Character.
+          In few seconds you will be able to see your MBTI Character above. 
         </p>
-  </div> */}
+        <Character />
+      </div>
     </div>
   );
 }
