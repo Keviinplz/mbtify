@@ -7,6 +7,9 @@ import { trpc } from "../utils/trpc";
 import styles from "../styles/Home.module.css";
 import Tracks from "../components/Tracks";
 import Character from "../components/Character";
+import Loader from "../components/Loader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -28,19 +31,33 @@ export default function Main() {
   const response = trpc.useQuery(["get-tracks", { limit: 5 }]);
 
   if (!response.data) {
-    return <p>Loading...</p>;
+    return (
+      <div className={styles.mainView} style={{ alignItems: "center" }}>
+        <Loader />
+      </div>
+    );
   }
 
   if (response.data.error && response.data.error === "Unauthorized") {
     signOut();
-    return <p>Your access token is not valid, please login again.</p>;
+    return (
+      <div className={styles.working} style={{ alignItems: "center" }}>
+        <FontAwesomeIcon icon={faCircleXmark} className={`${styles.icon}`} />
+        <span>Your access token is not valid, please login again.</span>
+      </div>
+    );
+  }
+
+  if (response.data.tracks == null) {
+    return (
+      <div className={styles.working} style={{ alignItems: "center" }}>
+        <FontAwesomeIcon icon={faCircleXmark} className={`${styles.icon}`} />
+        <span>No tracks found.</span>
+      </div>
+    );
   }
 
   const tracks = response.data.tracks;
-
-  if (!tracks) {
-    return <p>No tracks found</p>;
-  }
 
   return (
     <div className={styles.mainView}>
@@ -56,9 +73,9 @@ export default function Main() {
       <div className={styles.predictionMenu}>
         <h1 className={styles.menuTitle}>Your MBTI Character</h1>
         <p className={styles.menuDescription}>
-          In few seconds you will be able to see your MBTI Character above. 
+          In few seconds you will be able to see your MBTI Character above.
         </p>
-        <Character tracksIds={tracks.map((track) => track.id)}/>
+        <Character tracksIds={tracks.map((track) => track.id)} />
       </div>
     </div>
   );

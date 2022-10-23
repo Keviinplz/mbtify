@@ -31,3 +31,23 @@
   color: var(--text-primary);
   text-decoration: none;
 }
+
+@media (max-width: 1200px) {
+  .mbtiContainer {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mbtiContainer .mbtiSvg img {
+    width: 100%;
+    height: 100%;
+  }
+  .mbtiContainer .mbtiInformation {
+    margin-top: 30px;
+    color: var(--text-main);
+    font-weight: 200;
+    font-size: 1.2rem;
+  }
+  
+}
