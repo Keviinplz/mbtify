@@ -21,6 +21,7 @@ export default function MBTICharacter({
           <a
             href={`https://www.16personalities.com/${klassName.toLowerCase()}-personality`}
             target={"_blank"}
+            rel={"noreferrer"}
           >
             What is an {klassName}?
           </a>

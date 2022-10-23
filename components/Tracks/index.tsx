@@ -28,7 +28,7 @@ const Tracks = ({ tracks }: TracksProps) => {
     <ul className={styles.tracksList}>
       {tracks?.map((track) => (
         <li key={track.id}>
-          <a href={track.url} target="_blank" className={styles.trackLink}>
+          <a href={track.url} target="_blank" className={styles.trackLink} rel="noreferrer">
             <div className={styles.trackInfo}>
               <div className={styles.trackImage}>
                 <Image

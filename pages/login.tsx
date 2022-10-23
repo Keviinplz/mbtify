@@ -39,7 +39,7 @@ export default function Login() {
           </p>
         </div>
         <div className={styles.landingImage}>
-          <Image src={landingImg} layout="fill" objectFit="contain" priority/>
+          <Image src={landingImg} alt="" layout="fill" objectFit="contain" priority/>
         </div>
       </div>
       <div className={styles.buttonDiv}>
