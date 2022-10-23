@@ -34,7 +34,7 @@ export default function Character({ tracksIds }: CharacterProps) {
     );
   }
 
-  if (response.data.klassName == null || response.data.klassName == null) {
+  if (response.data.klassName == null || response.data.klass == null) {
     return <p> There was an error obtaining your MBTI Character </p>;
   }
 
