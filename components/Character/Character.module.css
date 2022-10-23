@@ -1,0 +1,48 @@
+.working {
+  display: flex;
+  flex-flow: column nowrap;
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+  flex-grow: 2;
+}
+
+.working .spinner {
+  font-size: 10rem;
+  color: var(--text-primary);
+}
+
+.working span {
+  font-size: 1.7rem;
+  color: var(--text-main);
+  font-weight: 100;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .working {
+    flex-grow: 1;
+    justify-content: space-around;
+  }
+  .working .spinner {
+    margin-top: 0;
+    justify-self: flex-start;
+  }
+  .working span {
+    margin-top: -6rem;
+    text-align: center;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .working span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .working .spinner {
+    font-size: 7rem;
+  }
+}
