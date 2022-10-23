@@ -12,8 +12,6 @@
 /.next/
 /out/
 
-ai
-
 # production
 /build
 
