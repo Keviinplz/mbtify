@@ -17,6 +17,24 @@
   font-size: 1.1rem;
 }
 
+.signOut {
+  line-height: 50px;
+}
+
+.signOutButton {
+  background: none;
+  color: var(--text-main);
+  border: none;
+  font-size: 1.3rem;
+  line-height: 50px;
+  margin-left: 20px;
+  transition: all 0.2s;
+}
+
+.signOutButton:hover {
+    color: var(--text-primary);
+}
+
 @media (max-width: 480px) {
   .username {
     display: none;

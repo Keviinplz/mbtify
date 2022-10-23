@@ -1,0 +1,18 @@
+export const klassMapping = {
+    0: "INTJ",
+    1: "INTP",
+    2: "ENTJ",
+    3: "ENTP",
+    4: "INFJ",
+    5: "INFP",
+    6: "ENFJ",
+    7: "ENFP",
+    8: "ISTJ",
+    9: "ISFJ",
+    10: "ESTJ",
+    11: "ESFJ",
+    12: "ISTP",
+    13: "ISFP",
+    14: "ESTP",
+    15: "ESFP",
+}

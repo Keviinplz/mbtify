@@ -1,0 +1,33 @@
+.navbar {
+  background-color: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  align-self: center;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.logo:hover {
+  color: var(--text-primary);
+}
+
+.signInButton {
+  background: none;
+  color: var(--text-main);
+  border: none;
+  font-size: 1.3rem;
+  line-height: 50px;
+  margin-left: 10px;
+  transition: all 0.2s;
+}
+
+.signInButton:hover {
+  color: var(--text-primary);
+}

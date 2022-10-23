@@ -1,0 +1,133 @@
+.landingPage {
+  margin: auto;
+}
+
+.landing {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.landingImage {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin-left: 5rem;
+}
+
+.landingTitle {
+  font-size: 5rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.landingDescription {
+  font-weight: 200;
+  font-size: 1.7rem;
+  width: 30vw;
+  color: var(--text-main);
+}
+
+button.cta {
+  background: var(--color-primary);
+  color: var(--text-main);
+  border: none;
+  font-size: 1.5rem;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+button.cta:hover {
+  background: #1db954;
+  color: var(--text-main);
+}
+
+button .brandIcon {
+  margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
+  .landing {
+    flex-flow: column;
+    max-width: 70vw;
+    align-items: center;
+  }
+
+  .landingImage {
+    width: 300px;
+    height: 300px;
+    margin: 0px auto;
+    text-align: left;
+  }
+
+  .landingTitle {
+    font-size: 4rem;
+  }
+
+  .landingDescription {
+    font-size: 1.2rem;
+    width: 30vw;
+  }
+
+  .buttonDiv {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .landing {
+    flex-flow: column;
+  }
+
+  .landingImage {
+    width: 300px;
+    height: 300px;
+    margin: 0px auto;
+  }
+
+  .landingTitle {
+    font-size: 4rem;
+  }
+
+  .landingDescription {
+    font-size: 1.2rem;
+    width: 70vw;
+  }
+
+  .buttonDiv {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .landing {
+    flex-flow: column;
+  }
+
+  .landingImage {
+    width: 200px;
+    height: 200px;
+    margin: 0px auto;
+  }
+
+  .landingTitle {
+    font-size: 3rem;
+  }
+
+  .landingDescription {
+    font-size: 1rem;
+    width: 70vw;
+  }
+
+  .buttonDiv {
+    width: 100%;
+    text-align: center;
+  }
+
+  button.cta {
+    font-size: 1.2rem;
+  }
+}
