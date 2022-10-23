@@ -1,49 +1,42 @@
 import { faAtom } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { trpc } from "../../utils/trpc";
+import MBTICharacter from "../MBTI";
 import styles from "./Character.module.css";
 
 interface CharacterProps {
   tracksIds: string[];
 }
 
-export default function Character({ tracksIds }: CharacterProps) {
-  const [message, setMessage] = useState<string>("Getting tracks...");
-  const [trackData, setTrackData] = useState<any>(null);
-
-  const response = trpc.useQuery([
-    "get-valence-by-tracks",
-    { tracks: tracksIds },
-  ]);
-
-  useEffect(() => {
-    if (!response.data) {
-      setMessage("Obtaining features from your tracks...");
-      return;
-    }
-
-    if (response.data.error && response.data.error === "Unauthorized") {
-      signOut();
-      setMessage("Your access token is not valid, please login again.");
-      return;
-    }
-
-    if (!response.data.features) {
-      setMessage("No tracks found");
-      return;
-    }
-
-    setTrackData(response.data.features);
-    setMessage("Getting MBTI type from your tracks features...");
-    return;
-  }, [response.data]);
-
+const WorkingMessage = ({ message }: { message: string }) => {
   return (
     <div className={`${styles.working}`}>
       <FontAwesomeIcon icon={faAtom} className={`${styles.spinner} fa-spin`} />
       <span>{message}</span>
     </div>
   );
+};
+
+export default function Character({ tracksIds }: CharacterProps) {
+  const response = trpc.useQuery(["process-tracks", { tracks: tracksIds }]);
+
+  if (!response.data) {
+    return <WorkingMessage message={"Loading..."} />;
+  }
+
+  if (response.data.error && response.data.error === "Unauthorized") {
+    signOut();
+    return (
+      <WorkingMessage
+        message={"Your access token is not valid, please login again."}
+      />
+    );
+  }
+
+  if (response.data.klassName == null) {
+    return <p> There was an error obtaining your MBTI Character </p>;
+  }
+
+  return <MBTICharacter klass={response.data.klass} />;
 }

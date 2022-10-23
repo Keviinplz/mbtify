@@ -12,12 +12,16 @@
 /.next/
 /out/
 
+ai
+
 # production
 /build
 
 # misc
 .DS_Store
 *.pem
+
+.vscode
 
 # debug
 npm-debug.log*

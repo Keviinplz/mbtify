@@ -1,0 +1,33 @@
+.mbtiContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mbtiContainer .mbtiSvg {
+  width: 60%;
+  height: 60%;
+}
+
+.mbtiContainer .mbtiInformation {
+  margin-top: 30px;
+  color: var(--text-main);
+  font-weight: 200;
+  font-size: 1.7rem;
+}
+
+.mbtiContainer .mbtiKlass {
+  font-size: 4rem;
+  font-weight: bold;
+  align-self: center;
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.mbtiContainer .mbtiInformation a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
