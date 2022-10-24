@@ -53,7 +53,7 @@ const calculateMeanFeatures = (features: SpotifyApi.AudioFeaturesObject[]) => {
 const getMBTICharacteristics = async (
   features: SpotifyApi.AudioFeaturesObject[]
 ) => {
-  const MODEL_PATH = path.resolve(__dirname, "../../../ai/model.onnx");
+  const MODEL_PATH = path.join(process.cwd(), 'ai', 'model.onnx');
   const session = await ort.InferenceSession.create(MODEL_PATH);
   const meanFeatures = calculateMeanFeatures(features);
   const inputFeatures = Object.fromEntries(
