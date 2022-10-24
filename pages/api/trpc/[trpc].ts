@@ -5,8 +5,7 @@ import { z } from "zod";
 import { Context, createContext } from "../../../utils/context";
 import { klassMapping } from "../../../ai/mapping";
 import * as ort from "onnxruntime-node";
-
-const MODEL_URI = "ai/model.onnx";
+import path from "path";
 
 const calculateMeanFeatures = (features: SpotifyApi.AudioFeaturesObject[]) => {
   const meanFeatures = {
@@ -54,7 +53,8 @@ const calculateMeanFeatures = (features: SpotifyApi.AudioFeaturesObject[]) => {
 const getMBTICharacteristics = async (
   features: SpotifyApi.AudioFeaturesObject[]
 ) => {
-  const session = await ort.InferenceSession.create(MODEL_URI);
+  const MODEL_PATH = path.resolve(__dirname, "../../../ai/model.onnx");
+  const session = await ort.InferenceSession.create(MODEL_PATH);
   const meanFeatures = calculateMeanFeatures(features);
   const inputFeatures = Object.fromEntries(
     Object.entries(meanFeatures).map(([key, value]) => [
